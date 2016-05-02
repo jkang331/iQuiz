@@ -1,5 +1,4 @@
-# iQuiz
-## Part 1
+# iQuiz : Part 1
 INFO 498 - Project 8
 iQuiz: A Multiple-Choice Q-and-A application
 
