@@ -12,6 +12,10 @@
 		9D56BA151CD72B84006D5049 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D56BA131CD72B84006D5049 /* Main.storyboard */; };
 		9D56BA171CD72B84006D5049 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D56BA161CD72B84006D5049 /* Assets.xcassets */; };
 		9D56BA1A1CD72B84006D5049 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D56BA181CD72B84006D5049 /* LaunchScreen.storyboard */; };
+		9DA3BC8C1CD98DEB007A4E62 /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA3BC8B1CD98DEB007A4E62 /* SubjectCell.swift */; };
+		9DA3BC921CD993B8007A4E62 /* avengers-age-of-ultron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DA3BC911CD993B8007A4E62 /* avengers-age-of-ultron.jpg */; };
+		9DA3BC951CD99485007A4E62 /* math.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DA3BC931CD99485007A4E62 /* math.jpg */; };
+		9DA3BC961CD99485007A4E62 /* science.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DA3BC941CD99485007A4E62 /* science.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		9D56BA161CD72B84006D5049 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D56BA191CD72B84006D5049 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D56BA1B1CD72B84006D5049 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DA3BC8B1CD98DEB007A4E62 /* SubjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
+		9DA3BC911CD993B8007A4E62 /* avengers-age-of-ultron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "avengers-age-of-ultron.jpg"; sourceTree = "<group>"; };
+		9DA3BC931CD99485007A4E62 /* math.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = math.jpg; sourceTree = "<group>"; };
+		9DA3BC941CD99485007A4E62 /* science.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = science.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +64,11 @@
 			children = (
 				9D56BA0F1CD72B84006D5049 /* AppDelegate.swift */,
 				9D56BA111CD72B84006D5049 /* ViewController.swift */,
+				9DA3BC911CD993B8007A4E62 /* avengers-age-of-ultron.jpg */,
 				9D56BA131CD72B84006D5049 /* Main.storyboard */,
+				9DA3BC931CD99485007A4E62 /* math.jpg */,
+				9DA3BC941CD99485007A4E62 /* science.jpg */,
+				9DA3BC8B1CD98DEB007A4E62 /* SubjectCell.swift */,
 				9D56BA161CD72B84006D5049 /* Assets.xcassets */,
 				9D56BA181CD72B84006D5049 /* LaunchScreen.storyboard */,
 				9D56BA1B1CD72B84006D5049 /* Info.plist */,
@@ -122,9 +134,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DA3BC961CD99485007A4E62 /* science.jpg in Resources */,
+				9DA3BC951CD99485007A4E62 /* math.jpg in Resources */,
 				9D56BA1A1CD72B84006D5049 /* LaunchScreen.storyboard in Resources */,
 				9D56BA171CD72B84006D5049 /* Assets.xcassets in Resources */,
 				9D56BA151CD72B84006D5049 /* Main.storyboard in Resources */,
+				9DA3BC921CD993B8007A4E62 /* avengers-age-of-ultron.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DA3BC8C1CD98DEB007A4E62 /* SubjectCell.swift in Sources */,
 				9D56BA121CD72B84006D5049 /* ViewController.swift in Sources */,
 				9D56BA101CD72B84006D5049 /* AppDelegate.swift in Sources */,
 			);
@@ -288,6 +304,7 @@
 				9D56BA201CD72B84006D5049 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

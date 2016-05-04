@@ -11,25 +11,36 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var SubjectTableView: UITableView!
-    @IBOutlet weak var subjectCell: UITableViewCell!
     
     var subjectsList = ["Mathematics", "Marvel Super Heroes", "Science"]
+    var imagePathList = ["math.jpg", "avengers-age-of-ultron.jpg", "science.jpg"]
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let subjectTableIdentifier = "subject"
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(subjectTableIdentifier)
+        let cell = tableView.dequeueReusableCellWithIdentifier(subjectTableIdentifier) as! SubjectCell
         
-        if (cell == nil) {
-            cell = UITableViewCell.init()
-        }
+        let image = UIImage(named: imagePathList[indexPath.row])
+        cell.imageLeft.image = image
+        cell.descriptionLabel.text = "Subject Description Sentence Here"
+        cell.title.text = subjectsList[indexPath.row]
         
-        cell!.textLabel!.text = subjectsList[indexPath.row]
-        return cell!;
+        let separatorLineView = UIView.init(frame: CGRectMake(0, cell.frame.size.height - 0.5 , self.view.frame.width, 1))
+        separatorLineView.backgroundColor = UIColor.lightGrayColor()
+        
+        cell.addSubview(separatorLineView)
+        
+
+        
+        return cell;
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subjectsList.count
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 75.0
     }
     
     override func viewDidLoad() {
