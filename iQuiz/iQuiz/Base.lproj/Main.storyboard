@@ -23,7 +23,11 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="iQuiz" id="eyW-f6-hxL">
-                                        <barButtonItem key="rightBarButtonItem" title="Settings" id="3On-uG-6j0"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Settings" id="3On-uG-6j0">
+                                            <connections>
+                                                <action selector="alert:" destination="BYZ-38-t0r" id="lgR-kw-CY8"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

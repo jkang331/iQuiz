@@ -20,17 +20,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let cell = tableView.dequeueReusableCellWithIdentifier(subjectTableIdentifier) as! SubjectCell
         
+        //Configuring the cell
         let image = UIImage(named: imagePathList[indexPath.row])
         cell.imageLeft.image = image
         cell.descriptionLabel.text = "Subject Description Sentence Here"
         cell.title.text = subjectsList[indexPath.row]
         
+        //Adding a Separator Line to the Bottom
         let separatorLineView = UIView.init(frame: CGRectMake(0, cell.frame.size.height - 0.5 , self.view.frame.width, 1))
         separatorLineView.backgroundColor = UIColor.lightGrayColor()
-        
         cell.addSubview(separatorLineView)
-        
-
         
         return cell;
     }
@@ -40,9 +39,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 75.0
+        return 75.0 //height for cell
     }
     
+    @IBAction func alert(sender: UIBarButtonItem) {
+        let alertController = UIAlertController.init(title: "Settings", message: "Settings Go Here", preferredStyle: .Alert)
+        let okAction = UIAlertAction(title:"OK", style:.Default) {(action) in };
+        alertController.addAction(okAction)
+        self.presentViewController(alertController, animated: true) { 
+            NSLog("Pressed Ok and Settings Alert")
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.SubjectTableView.delegate = self
