@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var SubjectTableView: UITableView!
     
     var subjectsList = ["Mathematics", "Marvel Super Heroes", "Science"]
-    var imagePathList = ["math.jpg", "avengers-age-of-ultron.jpg", "science.jpg"]
+    var imagePathList = ["math.png", "avengers-age-of-ultron.jpg", "science.jpg"]
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let subjectTableIdentifier = "subject"
