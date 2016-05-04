@@ -8,11 +8,34 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var SubjectTableView: UITableView!
+    @IBOutlet weak var subjectCell: UITableViewCell!
+    
+    var subjectsList = ["Mathematics", "Marvel Super Heroes", "Science"]
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let subjectTableIdentifier = "subject"
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier(subjectTableIdentifier)
+        
+        if (cell == nil) {
+            cell = UITableViewCell.init()
+        }
+        
+        cell!.textLabel!.text = subjectsList[indexPath.row]
+        return cell!;
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return subjectsList.count
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.SubjectTableView.delegate = self
+        self.SubjectTableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,4 +45,3 @@ class ViewController: UIViewController {
 
 
 }
-
