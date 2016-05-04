@@ -41,6 +41,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 75.0 //height for cell
     }
+
+//    This doesn't work yet
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let newViewController = QuizQuestionListController.init()
+//        newViewController.title = subjectsList[indexPath.row]
+//        self.presentViewController(newViewController, animated: true, completion: nil)
+//    }
+    
     
     @IBAction func alert(sender: UIBarButtonItem) {
         let alertController = UIAlertController.init(title: "Settings", message: "Settings Go Here", preferredStyle: .Alert)
