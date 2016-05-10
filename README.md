@@ -11,6 +11,12 @@ iQuiz: A Multiple-Choice Q-and-A application
 * app could upload their scores
 * quizzes are updated from a server
 
+### Table of Contents
+[Part 1](#Part-1) • [Part 2](#Part-2) • Part 3
+
+------
+
+
 ## Part 1
 #### Basic Interaction
 * we need a TableView for the quizzes
