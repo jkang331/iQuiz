@@ -12,7 +12,7 @@ iQuiz: A Multiple-Choice Q-and-A application
 * quizzes are updated from a server
 
 ### Table of Contents
-[Part 1](#part-1) • [Part 2](#part-2) • Part 3
+[Part 1](#part-1) • [Part 2](#part-2) • [Part 3](#part-3)
 
 ------
 
@@ -45,6 +45,7 @@ iQuiz: A Multiple-Choice Q-and-A application
 
 Due in 1 week (May 5th, 2016)
 
+------
 
 ## Part 2
 #### The Quizzes
@@ -90,4 +91,32 @@ Extra credit:
   * swipe left to abandon quiz and return to list: 1 pt
 
 DUE: 1 week (May 12, 2016)
+
+------
+
+## Part 3
+#### Network and Storage
+* all quizzes/questions should come from online
+* store the quizzes/questions to local storage
+* if offline, use locally-stored data
+* initial URL to use: http://tednewardsandbox.site44.com/questions.json
+* Settings should be a popover
+  * include a URL field to use instead of the above
+  * include a "check now" button to retrieve
+
+#### Grading: 5 points
+* download JSON from site: 1 pt
+* store JSON to local storage: 1 pt
+* use local storage offline: 2 pt
+* refresh on Settings "check now": 1 pt
+
+Extra credit:
+* implement "pull to refresh": 1 pt
+* central score storage:
+   * upload scores to central storage: 1 pt
+  * add new toolbar button and popover for scores: 1 pt
+  * change icon in quiz list to reflect score: 1 pt
+
+DUE: 1 week (May 12, 2016)
+
 
