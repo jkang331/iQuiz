@@ -12,7 +12,7 @@ iQuiz: A Multiple-Choice Q-and-A application
 * quizzes are updated from a server
 
 ### Table of Contents
-[Part 1](#Part-1) • [Part 2](#Part-2) • Part 3
+[Part 1](#part-1) • [Part 2](#part-2) • Part 3
 
 ------
 
