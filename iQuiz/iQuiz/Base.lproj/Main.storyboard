@@ -148,16 +148,29 @@
                                     <action selector="DisplayAnswer:" destination="zdF-TP-vqj" eventType="touchUpInside" id="lUy-70-9KD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question goes here: " textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovZ-bc-4k8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question goes here: " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovZ-bc-4k8">
                                 <rect key="frame" x="20" y="87" width="560" height="134"/>
                                 <color key="backgroundColor" red="0.78823529411764703" green="0.89411764705882357" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="134" id="sDy-WO-k8C"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="134" id="sDy-WO-k8C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ggV-KP-Hva">
+                                <rect key="frame" x="147" y="254" width="307" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="307" id="L74-Zn-lcf"/>
+                                    <constraint firstAttribute="height" constant="28" id="d7d-rJ-3WZ"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -165,7 +178,9 @@
                             <constraint firstItem="ovZ-bc-4k8" firstAttribute="top" secondItem="BG4-qa-29J" secondAttribute="bottom" constant="23" id="1y4-M3-Ebw"/>
                             <constraint firstItem="BG4-qa-29J" firstAttribute="top" secondItem="o0S-6X-fnE" secondAttribute="bottom" id="7ld-Mg-5H3"/>
                             <constraint firstItem="BG4-qa-29J" firstAttribute="width" secondItem="a7j-sF-XrL" secondAttribute="width" id="Bmv-6S-zoP"/>
+                            <constraint firstItem="ggV-KP-Hva" firstAttribute="top" secondItem="ovZ-bc-4k8" secondAttribute="bottom" constant="33" id="M6T-e6-uvp"/>
                             <constraint firstItem="BG4-qa-29J" firstAttribute="centerX" secondItem="a7j-sF-XrL" secondAttribute="centerX" id="MW7-aF-ivs"/>
+                            <constraint firstItem="ggV-KP-Hva" firstAttribute="centerX" secondItem="a7j-sF-XrL" secondAttribute="centerX" id="ZiG-Xi-8ws"/>
                             <constraint firstItem="s5s-cY-JuZ" firstAttribute="centerX" secondItem="a7j-sF-XrL" secondAttribute="centerX" id="t5K-5J-sFH"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ovZ-bc-4k8" secondAttribute="leading" id="uNx-g7-bdR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ovZ-bc-4k8" secondAttribute="trailing" id="y57-4A-4Od"/>
@@ -174,6 +189,7 @@
                     <connections>
                         <outlet property="NavBar" destination="BG4-qa-29J" id="bl8-fc-sBa"/>
                         <outlet property="QuestionLabel" destination="ovZ-bc-4k8" id="1yf-Is-Yrd"/>
+                        <outlet property="answerSelection" destination="ggV-KP-Hva" id="m3Z-c0-IXa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RhP-Ey-Pxz" userLabel="First Responder" sceneMemberID="firstResponder"/>

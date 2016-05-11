@@ -13,6 +13,7 @@ class QuestionController : UIViewController {
     
     @IBOutlet weak var NavBar: UINavigationBar!
     @IBOutlet weak var QuestionLabel: UILabel!
+    @IBOutlet weak var answerSelection: UISegmentedControl!
     
     var subject: String?
     var questionsList : NSString?
@@ -28,7 +29,8 @@ class QuestionController : UIViewController {
         answerViewController.questionsList = questionsList
         answerViewController.currentQuestion = question
         answerViewController.currentAnswer = options![answer!] as? String
-        answerViewController.userSelected = 1
+        answerViewController.userSelected = answerSelection.selectedSegmentIndex
+        print(answerSelection.selectedSegmentIndex)
         answerViewController.currentAnswerNumber = answer
         self.presentViewController(answerViewController, animated: false, completion: nil)
     }
@@ -62,7 +64,13 @@ class QuestionController : UIViewController {
         super.viewDidLoad()
         NavBar.topItem!.title = subject
         parseQuestionList()
-        QuestionLabel.text = "\(count). \(question!)"
+        var labelText = "Question #\(count). \(question!)\n\n"
+        var countOption = 1
+        for i in options! {
+            labelText = "\(labelText)\(countOption). \(i)\n"
+            countOption += 1
+        }
+        QuestionLabel.text = labelText
         
     }
     
