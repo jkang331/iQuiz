@@ -28,7 +28,7 @@ class QuestionController : UIViewController {
         answerViewController.questionsList = questionsList
         answerViewController.currentQuestion = question
         answerViewController.currentAnswer = options![answer!] as? String
-        self.presentViewController(answerViewController, animated: true, completion: nil)
+        self.presentViewController(answerViewController, animated: false, completion: nil)
     }
     
     
