@@ -101,8 +101,8 @@ DUE: 1 week (May 12, 2016)
 * if offline, use locally-stored data [TODO: DOUBLE CHECK]
 * initial URL to use: http://tednewardsandbox.site44.com/questions.json [DONE]
 * Settings should be a popover
-  * include a URL field to use instead of the above
-  * include a "check now" button to retrieve
+  * include a URL field to use instead of the above [TODO: DOUBLE CHECK]
+  * include a "check now" button to retrieve [TODO: DOUBLE CHECK]
 
 #### Grading: 5 points
 * download JSON from site: 1 pt 
