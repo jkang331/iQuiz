@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var imagePathList = ["mathematics.png", "marvel.jpg", "science.jpg"]
     var json : NSArray?
     var forceRefresh = false
+    var JSONPath = "http://tednewardsandbox.site44.com/questions.json"
     
     private func retrieveSubjectsList() -> [String]{
         if(subjectsList.count == 0) {
@@ -91,9 +92,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     @IBAction func alert(sender: UIBarButtonItem) {
-        let alertController = UIAlertController.init(title: "Settings", message: "Settings Go Here", preferredStyle: .Alert)
-        let okAction = UIAlertAction(title:"OK", style:.Default) {(action) in };
-        alertController.addAction(okAction)
+        let alertController = UIAlertController.init(title: "Settings", message: "Change JSON file", preferredStyle: .Alert)
+        let updateAction = UIAlertAction(title:"Update", style:.Default, handler: {
+            alert -> Void in
+            NSLog("hi")
+            self.JSONPath = alertController.textFields![0].text!
+            self.forceRefresh = true
+            self.retrieveJSONData()
+            self.setNeedsFocusUpdate()
+        });
+        alertController.addAction(updateAction)
+        let cancelAction = UIAlertAction(title:"Cancel", style:.Default) {(action) in };
+        alertController.addAction(cancelAction)
+        alertController.addTextFieldWithConfigurationHandler { (textField : UITextField!) -> Void in
+            textField.text = "http://"
+        }
         self.presentViewController(alertController, animated: true) {
             NSLog("Pressed Ok and Settings Alert")
         }
@@ -106,7 +119,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let jsonFile = defaults.objectForKey("json")
         
         if(jsonFile == nil || forceRefresh) {
-            let URL = NSURL(string:"http://tednewardsandbox.site44.com/questions.json")
+            let URL = NSURL(string:JSONPath)
             let urlRequest = NSMutableURLRequest(URL:URL!)
             let session = NSURLSession.sharedSession()
             let task = session.dataTaskWithRequest(urlRequest) {
