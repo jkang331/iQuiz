@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var questionsList: [String: String] = [:]
     var imagePathList = ["mathematics.png", "marvel.jpg", "science.jpg"]
     var json : NSArray?
+    var forceRefresh = false
     
     private func retrieveSubjectsList() -> [String]{
         if(subjectsList.count == 0) {
@@ -101,55 +102,73 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     private func retrieveJSONData() {
-        let URL = NSURL(string:"http://tednewardsandbox.site44.com/questions.json")
-        let urlRequest = NSMutableURLRequest(URL:URL!)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(urlRequest) {
-            (data,response, error) -> Void in
-            let httpResponse = response as! NSHTTPURLResponse
-            let statusCode = httpResponse.statusCode
-            
-            if statusCode == 200 {
-                do{
-                    
-                    self.json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as? NSArray
-                    
-                    var i = 0
-                    repeat{
-                        let subject:String = self.json![i]["title"] as! String
-                        self.subjectsList.append(subject)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let jsonFile = defaults.objectForKey("json")
+        
+        if(jsonFile == nil || forceRefresh) {
+            let URL = NSURL(string:"http://tednewardsandbox.site44.com/questions.json")
+            let urlRequest = NSMutableURLRequest(URL:URL!)
+            let session = NSURLSession.sharedSession()
+            let task = session.dataTaskWithRequest(urlRequest) {
+                (data,response, error) -> Void in
+                let httpResponse = response as! NSHTTPURLResponse
+                let statusCode = httpResponse.statusCode
+                
+                if statusCode == 200 {
+                    do{
                         
-                        let desc:String = self.json![i]["desc"] as! String
-                        self.descriptionsList.append(desc)
+                        self.json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as? NSArray
                         
-                        var questionCounter = 0
+                        // locally store json file
                         
-                        let totalNumberQuestions = self.json![i]["questions"]!!.count
-                        var stringify = ""
-                        while questionCounter <  totalNumberQuestions {
-                            
-                            let question = self.json![i]["questions"]!![questionCounter]["text"]!
-                            
-                            let answer = self.json![i]["questions"]!![questionCounter]["answer"]!
-                            
-                            let options = self.json![i]["questions"]!![questionCounter]["answers"]!?.componentsJoinedByString("|")
-
-                            stringify = stringify + "~~~\(question!)~~~\(options!)~~~\(answer!)###" //~~~\(questionCounter)
-                            questionCounter += 1
-                        }
-
-                        self.questionsList[subject] = stringify
-                        i+=1
-                    } while i < self.json?.count
-                    
-                }catch {
-                    print("Error with Json: \(error)")
+                        defaults.setObject(self.json, forKey: "json")
+                        
+                        self.parseJson(self.json!)
+                        
+                        
+                    }catch {
+                        print("Error with Json: \(error)")
+                    }
                 }
             }
+            task.resume()
+
+        } else {
+            self.parseJson(jsonFile! as! NSArray)
         }
-        task.resume()
     }
     
+    
+    private func parseJson(jsonFile : NSArray) {
+        var i = 0
+        repeat{
+            let subject:String = jsonFile[i]["title"] as! String
+            self.subjectsList.append(subject)
+            
+            let desc:String = jsonFile[i]["desc"] as! String
+            self.descriptionsList.append(desc)
+            
+            var questionCounter = 0
+            
+            let totalNumberQuestions = jsonFile[i]["questions"]!!.count
+            var stringify = ""
+            while questionCounter <  totalNumberQuestions {
+                
+                let question = jsonFile[i]["questions"]!![questionCounter]["text"]!
+                
+                let answer = jsonFile[i]["questions"]!![questionCounter]["answer"]!
+                
+                let options = jsonFile[i]["questions"]!![questionCounter]["answers"]!?.componentsJoinedByString("|")
+                
+                stringify = stringify + "~~~\(question!)~~~\(options!)~~~\(answer!)###" //~~~\(questionCounter)
+                questionCounter += 1
+            }
+            
+            self.questionsList[subject] = stringify
+            i+=1
+        } while i < jsonFile.count
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

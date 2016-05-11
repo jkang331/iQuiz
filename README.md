@@ -52,24 +52,24 @@ Due in 1 week (May 5th, 2016)
 * when the user selects a quiz, take them to the first"question" scene
 * when the user selects an answer in the "question" scene,take them to the "answer" scene
 * when the user pushes "next" from the "answer" scene...
-  *... if there are more questions, take them to the next"question" scene
-  *... if there are no questions left, take them to the "finished"scene
+  * ... if there are more questions, take them to the next"question" scene
+  * ... if there are no questions left, take them to the "finished"scene
 * when the users pushes the "back" button, they go back to the main list of topics
 
 #### "Question" Scene
 * UI elements required
-  * question text
+  * question text [DONE]
   * four answer possibilities (only one of which can be selected)
-  * a "submit" button to indicate they are ready to go on
-* layout is totally up to you
+  * a "submit" button to indicate they are ready to go on [DONE]
+* layout is totally up to you [DONE]
 
 #### "Answer" Scene
 * UI elements required
-  * question text
-  * the correct answer text
-  * some indicator whether they got it right or wrong
-  * a "next" button to indicate they are ready to go on
-* layout is totally up to you
+  * question text [DONE]
+  * the correct answer text [DONE]
+  * some indicator whether they got it right or wrong 
+  * a "next" button to indicate they are ready to go on [DONE]
+* layout is totally up to you [DONE]
 
 #### "Finished" Scene
 * UI elements required
@@ -96,17 +96,17 @@ DUE: 1 week (May 12, 2016)
 
 ## Part 3
 #### Network and Storage
-* all quizzes/questions should come from online
-* store the quizzes/questions to local storage
+* all quizzes/questions should come from online [DONE]
+* store the quizzes/questions to local storage [DONE]
 * if offline, use locally-stored data
-* initial URL to use: http://tednewardsandbox.site44.com/questions.json
+* initial URL to use: http://tednewardsandbox.site44.com/questions.json [DONE]
 * Settings should be a popover
   * include a URL field to use instead of the above
   * include a "check now" button to retrieve
 
 #### Grading: 5 points
-* download JSON from site: 1 pt
-* store JSON to local storage: 1 pt
+* download JSON from site: 1 pt 
+* store JSON to local storage: 1 pt 
 * use local storage offline: 2 pt
 * refresh on Settings "check now": 1 pt
 
