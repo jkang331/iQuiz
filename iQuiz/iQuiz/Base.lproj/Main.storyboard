@@ -48,13 +48,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7b-iN-DFM">
                                                     <rect key="frame" x="102" y="19" width="490" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykK-6q-nUo">
                                                     <rect key="frame" x="102" y="43" width="490" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -84,7 +84,6 @@
                                             <outlet property="descriptionLabel" destination="ykK-6q-nUo" id="cNs-vA-m0J"/>
                                             <outlet property="imageLeft" destination="Zyi-fh-rLQ" id="F4A-2Y-Kod"/>
                                             <outlet property="title" destination="q7b-iN-DFM" id="k0d-oY-OYA"/>
-                                            <segue destination="olc-6w-SOm" kind="show" id="rji-N8-RAn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -133,11 +132,7 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="Title" id="Leu-i3-Fdt">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="fkh-AJ-Uya">
-                                            <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="MdF-xl-UfK"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="fkh-AJ-Uya"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -165,6 +160,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdP-Ac-eD6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1317" y="429"/>
+        </scene>
+        <!--Question Controller-->
+        <scene sceneID="bkR-Jc-rRb">
+            <objects>
+                <viewController storyboardIdentifier="question" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zdF-TP-vqj" customClass="QuestionController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o0S-6X-fnE"/>
+                        <viewControllerLayoutGuide type="bottom" id="aKb-l0-iqd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a7j-sF-XrL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BG4-qa-29J">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="Title" id="gUT-eW-AtH"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question goes here: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovZ-bc-4k8">
+                                <rect key="frame" x="20" y="100" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5s-cY-JuZ">
+                                <rect key="frame" x="20" y="503" width="98" height="30"/>
+                                <color key="backgroundColor" red="0.25250344513429634" green="0.65778000486788823" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="ay1-6T-EIa"/>
+                                    <constraint firstAttribute="height" constant="30" id="uWt-jr-Red"/>
+                                </constraints>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="rtd-MV-NbG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ovZ-bc-4k8" firstAttribute="top" secondItem="BG4-qa-29J" secondAttribute="bottom" constant="36" id="1y4-M3-Ebw"/>
+                            <constraint firstItem="BG4-qa-29J" firstAttribute="top" secondItem="o0S-6X-fnE" secondAttribute="bottom" id="7ld-Mg-5H3"/>
+                            <constraint firstItem="BG4-qa-29J" firstAttribute="width" secondItem="a7j-sF-XrL" secondAttribute="width" id="Bmv-6S-zoP"/>
+                            <constraint firstItem="s5s-cY-JuZ" firstAttribute="leading" secondItem="a7j-sF-XrL" secondAttribute="leadingMargin" id="Deo-zF-nv6"/>
+                            <constraint firstItem="aKb-l0-iqd" firstAttribute="top" secondItem="s5s-cY-JuZ" secondAttribute="bottom" constant="67" id="F1I-Fx-Ryd"/>
+                            <constraint firstItem="BG4-qa-29J" firstAttribute="centerX" secondItem="a7j-sF-XrL" secondAttribute="centerX" id="MW7-aF-ivs"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ovZ-bc-4k8" secondAttribute="leading" id="uNx-g7-bdR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ovZ-bc-4k8" secondAttribute="trailing" id="y57-4A-4Od"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="NavBar" destination="BG4-qa-29J" id="bl8-fc-sBa"/>
+                        <outlet property="QuestionLabel" destination="ovZ-bc-4k8" id="1yf-Is-Yrd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RhP-Ey-Pxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1317" y="1182"/>
         </scene>
     </scenes>
 </document>

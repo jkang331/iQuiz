@@ -42,12 +42,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return 75.0 //height for cell
     }
 
-//    This doesn't work yet
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let newViewController = QuizQuestionListController.init()
-//        newViewController.title = subjectsList[indexPath.row]
-//        self.presentViewController(newViewController, animated: true, completion: nil)
-//    }
+    
+    // User wishes to go through quiz on given subject
+    // Navigates user to the first question of the quiz
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("question") as! QuestionController
+        secondViewController.subject = subjectsList[indexPath.row]
+        self.presentViewController(secondViewController, animated: true, completion: nil)
+    }
     
     
     @IBAction func alert(sender: UIBarButtonItem) {
