@@ -14,7 +14,9 @@ class AnswerController : UIViewController {
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var AnswerLabel: UILabel!
     @IBOutlet weak var QuestionLabel: UILabel!
+    
     var subject: String?
+    var questionsList : NSArray?
     var count: Int?
     
     @IBAction func NextQuestion(sender: UIButton) {

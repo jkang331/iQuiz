@@ -10,12 +10,13 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var SubjectTableView: UITableView!
     
     var subjectsList: [String] = []
     var descriptionsList: [String] = []
-    var imagePathList = ["math.png", "avengers-age-of-ultron.jpg", "science.jpg"]
+    var questionsList: [String: NSArray] = [:]
+    var imagePathList = ["mathematics.png", "marvel.jpg", "science.jpg"]
     var json : NSArray?
     
     private func retrieveSubjectsList() -> [String]{
@@ -24,7 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         var counter = 0
         while (subjectsList.count == 0 && counter < 75) {
-            sleep(3)
+            sleep(2)
             counter = counter + 1
         }
         
@@ -36,6 +37,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return subjectsList
     }
     
+    private func retrieveImagePath(subject:String) -> String {
+        switch subject {
+        case "Mathematics":
+            return imagePathList[0]
+        case "Marvel Super Heroes":
+            return imagePathList[1]
+        default:
+            return imagePathList[2]
+            
+        }
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let subjectTableIdentifier = "subject"
         
@@ -44,7 +57,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //Configuring the cell
         cell.title.text = retrieveSubjectsList()[indexPath.row]
         cell.descriptionLabel.text = descriptionsList[indexPath.row]
-        let image = UIImage(named: imagePathList[indexPath.row])
+        let image = UIImage(named: retrieveImagePath(cell.title.text!) )
         cell.imageLeft.image = image
         
         
@@ -64,7 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 75.0 //height for cell
     }
-
+    
     
     // User wishes to go through quiz on given subject
     // Navigates user to the first question of the quiz
@@ -79,7 +92,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let alertController = UIAlertController.init(title: "Settings", message: "Settings Go Here", preferredStyle: .Alert)
         let okAction = UIAlertAction(title:"OK", style:.Default) {(action) in };
         alertController.addAction(okAction)
-        self.presentViewController(alertController, animated: true) { 
+        self.presentViewController(alertController, animated: true) {
             NSLog("Pressed Ok and Settings Alert")
         }
         
@@ -92,8 +105,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(urlRequest) {
             (data,response, error) -> Void in
-                let httpResponse = response as! NSHTTPURLResponse
-                let statusCode = httpResponse.statusCode
+            let httpResponse = response as! NSHTTPURLResponse
+            let statusCode = httpResponse.statusCode
             
             if statusCode == 200 {
                 do{
@@ -107,8 +120,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         
                         let desc:String = self.json![i]["desc"] as! String
                         self.descriptionsList.append(desc)
+                        
+                        let questions = self.json![i]["questions"] as! NSArray
+                        self.questionsList[subject] = questions
                         i+=1
                     } while i < self.json?.count
+                    
+                    print(self.questionsList)
                 }catch {
                     print("Error with Json: \(error)")
                 }
@@ -123,13 +141,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.SubjectTableView.delegate = self
         self.SubjectTableView.dataSource = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
 

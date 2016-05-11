@@ -13,7 +13,9 @@ class QuestionController : UIViewController {
     
     @IBOutlet weak var NavBar: UINavigationBar!
     @IBOutlet weak var QuestionLabel: UILabel!
+    
     var subject: String?
+    var questionsList : NSArray?
     var count = 1
     
     @IBAction func DisplayAnswer(sender: UIButton) {
