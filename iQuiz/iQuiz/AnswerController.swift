@@ -8,12 +8,34 @@
 
 import UIKit
 
-class AnswerControler : UIViewController {
+class AnswerController : UIViewController {
  
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var resultImage: UIImageView!
+    @IBOutlet weak var AnswerLabel: UILabel!
+    @IBOutlet weak var QuestionLabel: UILabel!
+    var subject: String?
+    var count: Int?
+    
+    @IBAction func NextQuestion(sender: UIButton) {
+        let questionViewController = self.storyboard?.instantiateViewControllerWithIdentifier("question") as! QuestionController
+        
+        questionViewController.subject = subject
+        questionViewController.count = count! + 1
+        self.presentViewController(questionViewController, animated: true, completion: nil)
+        
+    }
+
+//    private func getQuestionLabel() -> String {
+//        let text = QuestionLabel!.text!
+//        return text
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navBar.topItem!.title = subject
         
+        QuestionLabel.text = "\(count!). blah blah blah"
     }
     
     override func didReceiveMemoryWarning() {
