@@ -18,6 +18,8 @@
 		9DA3BC961CD99485007A4E62 /* science.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DA3BC941CD99485007A4E62 /* science.jpg */; };
 		9DD93CFD1CE30F1F0099AAB3 /* marvel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DD93CFB1CE30F1F0099AAB3 /* marvel.jpg */; };
 		9DD93CFE1CE30F1F0099AAB3 /* mathematics.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DD93CFC1CE30F1F0099AAB3 /* mathematics.png */; };
+		9DD93D051CE333B90099AAB3 /* Correct.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DD93D031CE333B90099AAB3 /* Correct.png */; };
+		9DD93D061CE333B90099AAB3 /* Wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DD93D041CE333B90099AAB3 /* Wrong.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		9DA3BC941CD99485007A4E62 /* science.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = science.jpg; sourceTree = "<group>"; };
 		9DD93CFB1CE30F1F0099AAB3 /* marvel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = marvel.jpg; sourceTree = "<group>"; };
 		9DD93CFC1CE30F1F0099AAB3 /* mathematics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mathematics.png; sourceTree = "<group>"; };
+		9DD93D031CE333B90099AAB3 /* Correct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Correct.png; sourceTree = "<group>"; };
+		9DD93D041CE333B90099AAB3 /* Wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wrong.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 				9D56BA0F1CD72B84006D5049 /* AppDelegate.swift */,
 				9D56BA111CD72B84006D5049 /* ViewController.swift */,
 				9D56BA131CD72B84006D5049 /* Main.storyboard */,
+				9DD93D031CE333B90099AAB3 /* Correct.png */,
+				9DD93D041CE333B90099AAB3 /* Wrong.png */,
 				9D67AE971CE2B92C00B2DB6B /* QuestionController.swift */,
 				9D67AE991CE2BFB000B2DB6B /* AnswerController.swift */,
 				9DA3BC941CD99485007A4E62 /* science.jpg */,
@@ -141,9 +147,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DA3BC961CD99485007A4E62 /* science.jpg in Resources */,
+				9DD93D061CE333B90099AAB3 /* Wrong.png in Resources */,
 				9DD93CFD1CE30F1F0099AAB3 /* marvel.jpg in Resources */,
 				9D56BA1A1CD72B84006D5049 /* LaunchScreen.storyboard in Resources */,
 				9D56BA171CD72B84006D5049 /* Assets.xcassets in Resources */,
+				9DD93D051CE333B90099AAB3 /* Correct.png in Resources */,
 				9DD93CFE1CE30F1F0099AAB3 /* mathematics.png in Resources */,
 				9D56BA151CD72B84006D5049 /* Main.storyboard in Resources */,
 			);

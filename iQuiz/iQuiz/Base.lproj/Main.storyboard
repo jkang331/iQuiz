@@ -242,10 +242,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LM2-k3-TTS">
-                                <rect key="frame" x="20" y="404" width="177" height="108"/>
+                                <rect key="frame" x="234" y="402" width="133" height="81"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="177" id="lIA-eJ-qH7"/>
-                                    <constraint firstAttribute="height" constant="108" id="xuN-13-oid"/>
+                                    <constraint firstAttribute="width" constant="133" id="lIA-eJ-qH7"/>
+                                    <constraint firstAttribute="height" constant="81" id="xuN-13-oid"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -253,24 +253,18 @@
                         <constraints>
                             <constraint firstItem="ovG-2P-9JN" firstAttribute="top" secondItem="qRT-Kk-neo" secondAttribute="bottom" constant="23" id="0hI-cY-ZMz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XsM-go-FzW" secondAttribute="trailing" id="0ox-fP-Vcw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LM2-k3-TTS" secondAttribute="trailing" constant="30" id="2By-kk-RGk"/>
-                            <constraint firstItem="oAf-sS-8Nd" firstAttribute="top" secondItem="LM2-k3-TTS" secondAttribute="bottom" constant="88" id="5xH-lB-RWD"/>
-                            <constraint firstItem="oAf-sS-8Nd" firstAttribute="top" secondItem="EWj-RW-Bpf" secondAttribute="bottom" constant="88" id="74Z-wW-bjo"/>
                             <constraint firstItem="qRT-Kk-neo" firstAttribute="width" secondItem="RX9-qO-pjn" secondAttribute="width" id="AVJ-EX-zae"/>
+                            <constraint firstItem="LM2-k3-TTS" firstAttribute="top" secondItem="XsM-go-FzW" secondAttribute="bottom" constant="17" id="DGo-9Q-8R6"/>
+                            <constraint firstItem="LM2-k3-TTS" firstAttribute="centerX" secondItem="RX9-qO-pjn" secondAttribute="centerX" id="EZC-LA-gMu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ovG-2P-9JN" secondAttribute="trailing" id="KQE-Xn-pwM"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ovG-2P-9JN" secondAttribute="leading" id="PT6-rH-ogq"/>
                             <constraint firstItem="qRT-Kk-neo" firstAttribute="top" secondItem="diA-Dp-Jyo" secondAttribute="bottom" id="Qi3-g4-IJY"/>
                             <constraint firstItem="EWj-RW-Bpf" firstAttribute="centerX" secondItem="RX9-qO-pjn" secondAttribute="centerX" id="WbL-ZB-fJ1"/>
                             <constraint firstItem="XsM-go-FzW" firstAttribute="top" secondItem="ovG-2P-9JN" secondAttribute="bottom" constant="32" id="Yik-C5-Wez"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="LM2-k3-TTS" secondAttribute="leading" id="ncj-7c-7Ou"/>
                             <constraint firstAttribute="leadingMargin" secondItem="XsM-go-FzW" secondAttribute="leading" id="p1V-IY-Pt1"/>
+                            <constraint firstItem="oAf-sS-8Nd" firstAttribute="top" secondItem="EWj-RW-Bpf" secondAttribute="bottom" constant="88" id="qtn-RY-7PP"/>
                             <constraint firstItem="qRT-Kk-neo" firstAttribute="centerX" secondItem="RX9-qO-pjn" secondAttribute="centerX" id="rMF-5t-8Qs"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="2By-kk-RGk"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="AnswerLabel" destination="XsM-go-FzW" id="oIk-QN-LI3"/>

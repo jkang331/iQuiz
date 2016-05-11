@@ -28,6 +28,8 @@ class QuestionController : UIViewController {
         answerViewController.questionsList = questionsList
         answerViewController.currentQuestion = question
         answerViewController.currentAnswer = options![answer!] as? String
+        answerViewController.userSelected = 1
+        answerViewController.currentAnswerNumber = answer
         self.presentViewController(answerViewController, animated: false, completion: nil)
     }
     

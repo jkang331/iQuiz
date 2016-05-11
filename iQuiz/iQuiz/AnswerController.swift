@@ -18,9 +18,13 @@ class AnswerController : UIViewController {
     var subject: String?
     var questionsList : NSString?
     var count: Int?
+    var userSelected: Int?
     
     var currentQuestion: String?
+    var currentAnswerNumber: Int?
     var currentAnswer: String?
+    
+    private var imagePath = ["Correct.png", "Wrong.png"]
     
     @IBAction func NextQuestion(sender: UIButton) {
         if questionsList != "" {
@@ -36,11 +40,6 @@ class AnswerController : UIViewController {
         
         
     }
-
-//    private func getQuestionLabel() -> String {
-//        let text = QuestionLabel!.text!
-//        return text
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +47,14 @@ class AnswerController : UIViewController {
         
         QuestionLabel.text = "\(count!). \(currentQuestion!)"
         AnswerLabel.text = "Correct Answer: \n\(currentAnswer!)"
+        
+        let image : UIImage;
+        if userSelected == currentAnswerNumber {
+             image = UIImage(named: imagePath[0] )!
+        } else {
+            image = UIImage(named: imagePath[1] )!
+        }
+        resultImage.image = image
     }
     
     override func didReceiveMemoryWarning() {
