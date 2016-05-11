@@ -148,18 +148,18 @@
                                     <action selector="DisplayAnswer:" destination="zdF-TP-vqj" eventType="touchUpInside" id="lUy-70-9KD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question goes here: " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovZ-bc-4k8">
-                                <rect key="frame" x="20" y="87" width="560" height="134"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question goes here: " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovZ-bc-4k8">
+                                <rect key="frame" x="20" y="87" width="560" height="150"/>
                                 <color key="backgroundColor" red="0.78823529411764703" green="0.89411764705882357" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="134" id="sDy-WO-k8C"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="sDy-WO-k8C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ggV-KP-Hva">
-                                <rect key="frame" x="147" y="254" width="307" height="29"/>
+                                <rect key="frame" x="147" y="270" width="307" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="307" id="L74-Zn-lcf"/>
                                     <constraint firstAttribute="height" constant="28" id="d7d-rJ-3WZ"/>
@@ -216,7 +216,7 @@
                                     <navigationItem title="Title" id="2Dn-AV-6Sw"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YO5-P2-BPL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YO5-P2-BPL">
                                 <rect key="frame" x="20" y="124" width="560" height="214"/>
                                 <color key="backgroundColor" red="1" green="0.97254901960784312" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>

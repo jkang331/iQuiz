@@ -59,7 +59,7 @@ Due in 1 week (May 5th, 2016)
 #### "Question" Scene
 * UI elements required
   * question text [DONE]
-  * four answer possibilities (only one of which can be selected)
+* four answer possibilities (only one of which can be selected) [TODO: DOUBLE CHECK]
   * a "submit" button to indicate they are ready to go on [DONE]
 * layout is totally up to you [DONE]
 
@@ -73,10 +73,10 @@ Due in 1 week (May 5th, 2016)
 
 #### "Finished" Scene
 * UI elements required
-  * some kind of descriptive text ("Perfect!" "Almost!" etc)
-  * the user's score on the quiz (x of y correct)
+  * some kind of descriptive text ("Perfect!" "Almost!" etc) [DONE]
+  * the user's score on the quiz (x of y correct) [DONE]
   * a "next" button to indicate they are ready to go on [DONE]
-* layout is totally up to you
+* layout is totally up to you [DONE]
 
 #### Grading: 5 points
 * question scene acts as intended: 1 pt
@@ -98,7 +98,7 @@ DUE: 1 week (May 12, 2016)
 #### Network and Storage
 * all quizzes/questions should come from online [DONE]
 * store the quizzes/questions to local storage [DONE]
-* if offline, use locally-stored data
+* if offline, use locally-stored data [TODO: DOUBLE CHECK]
 * initial URL to use: http://tednewardsandbox.site44.com/questions.json [DONE]
 * Settings should be a popover
   * include a URL field to use instead of the above

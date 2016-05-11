@@ -21,7 +21,6 @@
 		9DD93D051CE333B90099AAB3 /* Correct.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DD93D031CE333B90099AAB3 /* Correct.png */; };
 		9DD93D061CE333B90099AAB3 /* Wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DD93D041CE333B90099AAB3 /* Wrong.png */; };
 		9DD93D081CE337600099AAB3 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD93D071CE337600099AAB3 /* ScoreController.swift */; };
-		9DD93D0A1CE33CA30099AAB3 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD93D091CE33CA30099AAB3 /* CheckBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +40,6 @@
 		9DD93D031CE333B90099AAB3 /* Correct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Correct.png; sourceTree = "<group>"; };
 		9DD93D041CE333B90099AAB3 /* Wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wrong.png; sourceTree = "<group>"; };
 		9DD93D071CE337600099AAB3 /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
-		9DD93D091CE33CA30099AAB3 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,6 @@
 				9D56BA111CD72B84006D5049 /* ViewController.swift */,
 				9D56BA131CD72B84006D5049 /* Main.storyboard */,
 				9DD93D071CE337600099AAB3 /* ScoreController.swift */,
-				9DD93D091CE33CA30099AAB3 /* CheckBox.swift */,
 				9DD93D031CE333B90099AAB3 /* Correct.png */,
 				9DD93D041CE333B90099AAB3 /* Wrong.png */,
 				9D67AE971CE2B92C00B2DB6B /* QuestionController.swift */,
@@ -173,7 +170,6 @@
 				9D67AE981CE2B92C00B2DB6B /* QuestionController.swift in Sources */,
 				9DA3BC8C1CD98DEB007A4E62 /* SubjectCell.swift in Sources */,
 				9DD93D081CE337600099AAB3 /* ScoreController.swift in Sources */,
-				9DD93D0A1CE33CA30099AAB3 /* CheckBox.swift in Sources */,
 				9D67AE9A1CE2BFB000B2DB6B /* AnswerController.swift in Sources */,
 				9D56BA121CD72B84006D5049 /* ViewController.swift in Sources */,
 				9D56BA101CD72B84006D5049 /* AppDelegate.swift in Sources */,

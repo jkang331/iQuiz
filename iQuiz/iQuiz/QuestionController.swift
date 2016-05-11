@@ -18,9 +18,12 @@ class QuestionController : UIViewController {
     var subject: String?
     var questionsList : NSString?
     var count = 1
+    var numberOfCorrect = 0
+    
     private var question : String?
     private var options : NSArray?
     private var answer: Int?
+    
     
     @IBAction func DisplayAnswer(sender: UIButton) {
         let answerViewController = self.storyboard!.instantiateViewControllerWithIdentifier("answer") as! AnswerController
@@ -30,6 +33,7 @@ class QuestionController : UIViewController {
         answerViewController.currentQuestion = question
         answerViewController.currentAnswer = options![answer!] as? String
         answerViewController.userSelected = answerSelection.selectedSegmentIndex
+        answerViewController.numberOfCorrect = self.numberOfCorrect
         print(answerSelection.selectedSegmentIndex)
         answerViewController.currentAnswerNumber = answer
         self.presentViewController(answerViewController, animated: false, completion: nil)

@@ -9,7 +9,7 @@
 import UIKit
 
 class AnswerController : UIViewController {
- 
+    
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var AnswerLabel: UILabel!
@@ -23,6 +23,7 @@ class AnswerController : UIViewController {
     var currentQuestion: String?
     var currentAnswerNumber: Int?
     var currentAnswer: String?
+    var numberOfCorrect = 0
     
     private var imagePath = ["Correct.png", "Wrong.png"]
     
@@ -30,6 +31,7 @@ class AnswerController : UIViewController {
         if questionsList != "" {
             let questionViewController = self.storyboard?.instantiateViewControllerWithIdentifier("question") as! QuestionController
             
+            questionViewController.numberOfCorrect = self.numberOfCorrect
             questionViewController.subject = subject
             questionViewController.count = count! + 1
             questionViewController.questionsList = questionsList
@@ -38,6 +40,8 @@ class AnswerController : UIViewController {
             let finalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("final") as! ScoreController
             
             finalViewController.subject = subject
+            finalViewController.totalNumberOfQuestions = self.count
+            finalViewController.numberOfCorrectAnswers = numberOfCorrect
             self.presentViewController(finalViewController, animated: false, completion: nil)
         }
         
@@ -53,7 +57,8 @@ class AnswerController : UIViewController {
         
         let image : UIImage;
         if userSelected == currentAnswerNumber {
-             image = UIImage(named: imagePath[0] )!
+            numberOfCorrect += 1
+            image = UIImage(named: imagePath[0] )!
         } else {
             image = UIImage(named: imagePath[1] )!
         }

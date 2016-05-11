@@ -13,13 +13,21 @@ class ScoreController : UIViewController {
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var resultsLabel: UILabel!
     
-    var subject: String?
+    var subject : String?
+    var totalNumberOfQuestions : Int?
+    var numberOfCorrectAnswers : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar.topItem!.title = subject
         
-        resultsLabel.text = "RESULTS"
+        resultsLabel.text = "You got \(numberOfCorrectAnswers!)/\(totalNumberOfQuestions!)"
+        let fiftyPercent =  Double(totalNumberOfQuestions!) / 2.0
+        if Double(numberOfCorrectAnswers!) > fiftyPercent {
+            resultsLabel.text = "\(resultsLabel.text!)\n\n Great job!"
+        } else {
+            resultsLabel.text = "\(resultsLabel.text!)\n\n Better luck next time!"
+        }
     }
     
     override func didReceiveMemoryWarning() {
