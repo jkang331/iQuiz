@@ -49,12 +49,12 @@ Due in 1 week (May 5th, 2016)
 
 ## Part 2
 #### The Quizzes
-* when the user selects a quiz, take them to the first"question" scene
-* when the user selects an answer in the "question" scene,take them to the "answer" scene
-* when the user pushes "next" from the "answer" scene...
-  * ... if there are more questions, take them to the next"question" scene
-  * ... if there are no questions left, take them to the "finished"scene
-* when the users pushes the "back" button, they go back to the main list of topics
+* when the user selects a quiz, take them to the first"question" scene [DONE]
+* when the user selects an answer in the "question" scene,take them to the "answer" scene [DONE]
+* when the user pushes "next" from the "answer" scene... [DONE]
+  * ... if there are more questions, take them to the next"question" scene [DONE]
+  * ... if there are no questions left, take them to the "finished"scene [DONE]
+* when the users pushes the "back" button, they go back to the main list of topics [DONE]
 
 #### "Question" Scene
 * UI elements required
@@ -67,7 +67,7 @@ Due in 1 week (May 5th, 2016)
 * UI elements required
   * question text [DONE]
   * the correct answer text [DONE]
-  * some indicator whether they got it right or wrong 
+  * some indicator whether they got it right or wrong [DONE]
   * a "next" button to indicate they are ready to go on [DONE]
 * layout is totally up to you [DONE]
 
@@ -75,7 +75,7 @@ Due in 1 week (May 5th, 2016)
 * UI elements required
   * some kind of descriptive text ("Perfect!" "Almost!" etc)
   * the user's score on the quiz (x of y correct)
-  * a "next" button to indicate they are ready to go on
+  * a "next" button to indicate they are ready to go on [DONE]
 * layout is totally up to you
 
 #### Grading: 5 points
