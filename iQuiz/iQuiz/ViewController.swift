@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var subjectsList: [String] = []
     var descriptionsList: [String] = []
-    var questionsList: [String: NSArray] = [:]
+    var questionsList: [String: String] = [:]
     var imagePathList = ["mathematics.png", "marvel.jpg", "science.jpg"]
     var json : NSArray?
     
@@ -84,6 +84,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("question") as! QuestionController
         secondViewController.subject = retrieveSubjectsList()[indexPath.row]
+        secondViewController.questionsList = questionsList[secondViewController.subject!]
         self.presentViewController(secondViewController, animated: true, completion: nil)
     }
     
@@ -121,12 +122,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         let desc:String = self.json![i]["desc"] as! String
                         self.descriptionsList.append(desc)
                         
-                        let questions = self.json![i]["questions"] as! NSArray
-                        self.questionsList[subject] = questions
+                        var questionCounter = 0
+                        
+                        let totalNumberQuestions = self.json![i]["questions"]!!.count
+                        var stringify = ""
+                        while questionCounter <  totalNumberQuestions {
+                            
+                            let question = self.json![i]["questions"]!![questionCounter]["text"]!
+                            
+                            let answer = self.json![i]["questions"]!![questionCounter]["answer"]!
+                            
+                            let options = self.json![i]["questions"]!![questionCounter]["answers"]!?.componentsJoinedByString("|")
+
+                            stringify = stringify + "~~~\(question!)~~~\(options!)~~~\(answer!)###" //~~~\(questionCounter)
+                            questionCounter += 1
+                        }
+
+                        self.questionsList[subject] = stringify
                         i+=1
                     } while i < self.json?.count
                     
-                    print(self.questionsList)
                 }catch {
                     print("Error with Json: \(error)")
                 }

@@ -16,15 +16,24 @@ class AnswerController : UIViewController {
     @IBOutlet weak var QuestionLabel: UILabel!
     
     var subject: String?
-    var questionsList : NSArray?
+    var questionsList : NSString?
     var count: Int?
     
+    var currentQuestion: String?
+    var currentAnswer: String?
+    
     @IBAction func NextQuestion(sender: UIButton) {
-        let questionViewController = self.storyboard?.instantiateViewControllerWithIdentifier("question") as! QuestionController
+        if questionsList != "" {
+            let questionViewController = self.storyboard?.instantiateViewControllerWithIdentifier("question") as! QuestionController
+            
+            questionViewController.subject = subject
+            questionViewController.count = count! + 1
+            questionViewController.questionsList = questionsList
+            self.presentViewController(questionViewController, animated: false, completion: nil)
+        } else {
+            NSLog("HELPPP")
+        }
         
-        questionViewController.subject = subject
-        questionViewController.count = count! + 1
-        self.presentViewController(questionViewController, animated: true, completion: nil)
         
     }
 
@@ -37,7 +46,8 @@ class AnswerController : UIViewController {
         super.viewDidLoad()
         navBar.topItem!.title = subject
         
-        QuestionLabel.text = "\(count!). blah blah blah"
+        QuestionLabel.text = "\(count!). \(currentQuestion!)"
+        AnswerLabel.text = "Correct Answer: \n\(currentAnswer!)"
     }
     
     override func didReceiveMemoryWarning() {
