@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -14,6 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var subjectsList = ["Mathematics", "Marvel Super Heroes", "Science"]
     var imagePathList = ["math.png", "avengers-age-of-ultron.jpg", "science.jpg"]
+    var json : AnyObject?
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let subjectTableIdentifier = "subject"
@@ -61,7 +63,51 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
     }
+    
+    
+    func retrieveJSONData() {
+        let url_String = "http://tednewardsandbox.site44.com/questions.json";
+        let data = NSData(contentsOfURL: NSURL(string: url_String)!)
+//        var error : NSError
+        
+//        var error:NSError? = nil
+//        if let jsonObject: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error:&error) {
+//            if let dict = jsonObject as? NSDictionary {
+//                NSLog(dict)
+//            } else {
+//                NSLog("not a dictionary")
+//            }
+//        } else {
+//            NSLog("Could not parse JSON: \(error!)")
+//        }
+        
+
+        do {
+            if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as?NSDictionary {
+                NSLog("hooray")
+                NSLog(jsonResult.descriptionInStringsFileFormat)
+                print(jsonResult)
+            }
+        } catch let error as NSError {
+            NSLog(":(")
+            print(error.localizedDescription)
+        }
+        
+//        json = NSJSONSerialization.JSONObjectWithData(data!, options: nil) throws -> error
+//        
+//        if (json) {
+//            NSLog("Error parsing JSON: \(error)");
+//        } else {
+//            for _ in json {
+//                NSLog(@"Item: %@", item);
+//            }
+//        }
+        
+        
+    }
+    
     override func viewDidLoad() {
+        retrieveJSONData()
         super.viewDidLoad()
         self.SubjectTableView.delegate = self
         self.SubjectTableView.dataSource = self
