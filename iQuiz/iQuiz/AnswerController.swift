@@ -35,7 +35,10 @@ class AnswerController : UIViewController {
             questionViewController.questionsList = questionsList
             self.presentViewController(questionViewController, animated: false, completion: nil)
         } else {
-            NSLog("HELPPP")
+            let finalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("final") as! ScoreController
+            
+            finalViewController.subject = subject
+            self.presentViewController(finalViewController, animated: false, completion: nil)
         }
         
         

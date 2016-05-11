@@ -180,6 +180,74 @@
             </objects>
             <point key="canvasLocation" x="1099" y="429"/>
         </scene>
+        <!--Score Controller-->
+        <scene sceneID="cf8-fp-7t6">
+            <objects>
+                <viewController storyboardIdentifier="final" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zx8-2N-Rlt" customClass="ScoreController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JiE-gh-XEp"/>
+                        <viewControllerLayoutGuide type="bottom" id="nUs-0M-CHG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ySy-xN-YpK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3lu-W5-kcF">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="Title" id="2Dn-AV-6Sw"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YO5-P2-BPL">
+                                <rect key="frame" x="20" y="124" width="560" height="214"/>
+                                <color key="backgroundColor" red="1" green="0.97254901960784312" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="vj2-W3-vbL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHi-HS-fnj">
+                                <rect key="frame" x="228" y="400" width="144" height="30"/>
+                                <color key="backgroundColor" red="0.2525034451" green="0.65778000489999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="BWs-vc-LRt"/>
+                                    <constraint firstAttribute="height" constant="30" id="dP4-fF-9eB"/>
+                                </constraints>
+                                <state key="normal" title="Return to Home">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="DisplayAnswer:" destination="zdF-TP-vqj" eventType="touchUpInside" id="4tM-Rq-3Wv"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="j4f-BT-3aG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3lu-W5-kcF" firstAttribute="width" secondItem="ySy-xN-YpK" secondAttribute="width" id="20F-gf-DuD"/>
+                            <constraint firstItem="3lu-W5-kcF" firstAttribute="leading" secondItem="ySy-xN-YpK" secondAttribute="leading" id="Aah-y1-VeP"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="YO5-P2-BPL" secondAttribute="leading" id="I55-Ss-d0r"/>
+                            <constraint firstItem="YHi-HS-fnj" firstAttribute="centerX" secondItem="ySy-xN-YpK" secondAttribute="centerX" id="Leb-eQ-Aaa"/>
+                            <constraint firstItem="3lu-W5-kcF" firstAttribute="top" secondItem="JiE-gh-XEp" secondAttribute="bottom" id="PEh-TO-p4W"/>
+                            <constraint firstItem="YO5-P2-BPL" firstAttribute="centerY" secondItem="ySy-xN-YpK" secondAttribute="centerY" constant="-69" id="Ynu-GK-sdW"/>
+                            <constraint firstItem="YO5-P2-BPL" firstAttribute="centerX" secondItem="ySy-xN-YpK" secondAttribute="centerX" id="aRI-7T-TIe"/>
+                            <constraint firstItem="YHi-HS-fnj" firstAttribute="top" secondItem="YO5-P2-BPL" secondAttribute="bottom" constant="62" id="ckx-A4-0sx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YO5-P2-BPL" secondAttribute="trailing" id="uaP-Qj-RCE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="navBar" destination="3lu-W5-kcF" id="DVg-l5-rBf"/>
+                        <outlet property="resultsLabel" destination="YO5-P2-BPL" id="FOb-mP-mdq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iVH-Qt-SjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1099" y="1133"/>
+        </scene>
         <!--Answer Controller-->
         <scene sceneID="ed7-JE-c3Y">
             <objects>
@@ -278,4 +346,7 @@
             <point key="canvasLocation" x="1755" y="429"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="j4f-BT-3aG"/>
+    </inferredMetricsTieBreakers>
 </document>
