@@ -13,9 +13,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var SubjectTableView: UITableView!
     
-    var subjectsList = ["Mathematics", "Marvel Super Heroes", "Science"]
+    var subjectsList: [String] = []
+    var descriptionsList: [String] = []
     var imagePathList = ["math.png", "avengers-age-of-ultron.jpg", "science.jpg"]
-    var json : AnyObject?
+    var json : NSArray?
+    
+    private func retrieveSubjectsList() -> [String]{
+        if(subjectsList.count == 0) {
+            retrieveJSONData()
+        }
+        var counter = 0
+        while (subjectsList.count == 0 && counter < 75) {
+            sleep(3)
+            counter = counter + 1
+        }
+        
+        if(subjectsList.count == 0) {
+            NSLog("wasn't able to fetch data - will prepopulate")
+            subjectsList = ["Mathematics", "Marvel Super Heroes", "Science"]
+            descriptionsList = ["description", "description", "description"]
+        }
+        return subjectsList
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let subjectTableIdentifier = "subject"
@@ -23,10 +42,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCellWithIdentifier(subjectTableIdentifier) as! SubjectCell
         
         //Configuring the cell
+        cell.title.text = retrieveSubjectsList()[indexPath.row]
+        cell.descriptionLabel.text = descriptionsList[indexPath.row]
         let image = UIImage(named: imagePathList[indexPath.row])
         cell.imageLeft.image = image
-        cell.descriptionLabel.text = "Subject Description Sentence Here"
-        cell.title.text = subjectsList[indexPath.row]
+        
+        
         
         //Adding a Separator Line to the Bottom
         let separatorLineView = UIView.init(frame: CGRectMake(0, cell.frame.size.height - 0.5 , self.view.frame.width, 1))
@@ -37,7 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjectsList.count
+        return retrieveSubjectsList().count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -49,7 +70,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // Navigates user to the first question of the quiz
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("question") as! QuestionController
-        secondViewController.subject = subjectsList[indexPath.row]
+        secondViewController.subject = retrieveSubjectsList()[indexPath.row]
         self.presentViewController(secondViewController, animated: true, completion: nil)
     }
     
@@ -65,49 +86,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-    func retrieveJSONData() {
-        let url_String = "http://tednewardsandbox.site44.com/questions.json";
-        let data = NSData(contentsOfURL: NSURL(string: url_String)!)
-//        var error : NSError
-        
-//        var error:NSError? = nil
-//        if let jsonObject: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error:&error) {
-//            if let dict = jsonObject as? NSDictionary {
-//                NSLog(dict)
-//            } else {
-//                NSLog("not a dictionary")
-//            }
-//        } else {
-//            NSLog("Could not parse JSON: \(error!)")
-//        }
-        
-
-        do {
-            if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as?NSDictionary {
-                NSLog("hooray")
-                NSLog(jsonResult.descriptionInStringsFileFormat)
-                print(jsonResult)
+    private func retrieveJSONData() {
+        let URL = NSURL(string:"http://tednewardsandbox.site44.com/questions.json")
+        let urlRequest = NSMutableURLRequest(URL:URL!)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(urlRequest) {
+            (data,response, error) -> Void in
+                let httpResponse = response as! NSHTTPURLResponse
+                let statusCode = httpResponse.statusCode
+            
+            if statusCode == 200 {
+                do{
+                    
+                    self.json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as? NSArray
+                    
+                    var i = 0
+                    repeat{
+                        let subject:String = self.json![i]["title"] as! String
+                        self.subjectsList.append(subject)
+                        
+                        let desc:String = self.json![i]["desc"] as! String
+                        self.descriptionsList.append(desc)
+                        i+=1
+                    } while i < self.json?.count
+                }catch {
+                    print("Error with Json: \(error)")
+                }
             }
-        } catch let error as NSError {
-            NSLog(":(")
-            print(error.localizedDescription)
         }
-        
-//        json = NSJSONSerialization.JSONObjectWithData(data!, options: nil) throws -> error
-//        
-//        if (json) {
-//            NSLog("Error parsing JSON: \(error)");
-//        } else {
-//            for _ in json {
-//                NSLog(@"Item: %@", item);
-//            }
-//        }
-        
-        
+        task.resume()
     }
     
+    
     override func viewDidLoad() {
-        retrieveJSONData()
         super.viewDidLoad()
         self.SubjectTableView.delegate = self
         self.SubjectTableView.dataSource = self
@@ -120,3 +131,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 
 }
+
+
+
+
