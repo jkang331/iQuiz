@@ -32,6 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         if(subjectsList.count == 0) {
+            // SHOULDN'T EVER REACH HERE
             NSLog("wasn't able to fetch data - will prepopulate")
             subjectsList = ["Mathematics", "Marvel Super Heroes", "Science"]
             descriptionsList = ["description", "description", "description"]
@@ -122,27 +123,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let URL = NSURL(string:JSONPath)
             let urlRequest = NSMutableURLRequest(URL:URL!)
             let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithRequest(urlRequest) {
-                (data,response, error) -> Void in
-                let httpResponse = response as! NSHTTPURLResponse
-                let statusCode = httpResponse.statusCode
+            let task = session.dataTaskWithRequest(urlRequest) { (data,response, error) -> Void in
                 
-                if statusCode == 200 {
-                    do{
-                        
-                        self.json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as? NSArray
-                        
-                        // locally store json file
-                        
-                        defaults.setObject(self.json, forKey: "json")
-                        
-                        self.parseJson(self.json!)
-                        
-                        
-                    }catch {
-                        print("Error with Json: \(error)")
+                let httpResponse : NSHTTPURLResponse
+                if response != nil {
+                    httpResponse = response as! NSHTTPURLResponse
+                    let statusCode = httpResponse.statusCode
+                    
+                    if statusCode == 200 {
+                        do{
+                            
+                            self.json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments) as? NSArray
+                            
+                            // locally store json file
+                            
+                            defaults.setObject(self.json, forKey: "json")
+                            
+                            self.parseJson(self.json!)
+                            
+                            
+                        }catch {
+                            print("Error with Json: \(error)")
+                        }
                     }
+                } else { // original URL didn't work reverting to backup stored JSON file
+                    self.retrieveBackupJSONFile()
                 }
+                
             }
             task.resume()
 
@@ -150,7 +157,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.parseJson(jsonFile! as! NSArray)
         }
     }
+
     
+    private func retrieveBackupJSONFile(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let filePath = NSBundle.mainBundle().pathForResource("backup", ofType: "json")
+        let contentsOfLocalFile = NSData.init(contentsOfFile: filePath!)
+        do{
+            
+            self.json = try NSJSONSerialization.JSONObjectWithData(contentsOfLocalFile!, options: .AllowFragments) as? NSArray
+            
+            // locally store json file
+            
+            defaults.setObject(self.json, forKey: "json")
+            self.parseJson(self.json!)
+            
+            
+        }catch {
+            print("Error with Json: retrieving local json file")
+        }
+        
+    }
+
     
     private func parseJson(jsonFile : NSArray) {
         var i = 0

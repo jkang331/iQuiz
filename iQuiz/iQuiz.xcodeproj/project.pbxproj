@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38A50DE81CE4242700E4C62A /* backup.json in Resources */ = {isa = PBXBuildFile; fileRef = 38A50DE71CE4242700E4C62A /* backup.json */; };
 		9D56BA101CD72B84006D5049 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D56BA0F1CD72B84006D5049 /* AppDelegate.swift */; };
 		9D56BA121CD72B84006D5049 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D56BA111CD72B84006D5049 /* ViewController.swift */; };
 		9D56BA151CD72B84006D5049 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D56BA131CD72B84006D5049 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38A50DE71CE4242700E4C62A /* backup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = backup.json; path = ../backup.json; sourceTree = "<group>"; };
 		9D56BA0C1CD72B84006D5049 /* iQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D56BA0F1CD72B84006D5049 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D56BA111CD72B84006D5049 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		9D56BA0E1CD72B84006D5049 /* iQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				38A50DE71CE4242700E4C62A /* backup.json */,
 				9DD93CFB1CE30F1F0099AAB3 /* marvel.jpg */,
 				9DD93CFC1CE30F1F0099AAB3 /* mathematics.png */,
 				9D56BA0F1CD72B84006D5049 /* AppDelegate.swift */,
@@ -155,6 +158,7 @@
 				9D56BA1A1CD72B84006D5049 /* LaunchScreen.storyboard in Resources */,
 				9D56BA171CD72B84006D5049 /* Assets.xcassets in Resources */,
 				9DD93D051CE333B90099AAB3 /* Correct.png in Resources */,
+				38A50DE81CE4242700E4C62A /* backup.json in Resources */,
 				9DD93CFE1CE30F1F0099AAB3 /* mathematics.png in Resources */,
 				9D56BA151CD72B84006D5049 /* Main.storyboard in Resources */,
 			);

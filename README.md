@@ -59,7 +59,7 @@ Due in 1 week (May 5th, 2016)
 #### "Question" Scene
 * UI elements required
   * question text [DONE]
-* four answer possibilities (only one of which can be selected) [TODO: DOUBLE CHECK]
+* four answer possibilities (only one of which can be selected) [DONE]
   * a "submit" button to indicate they are ready to go on [DONE]
 * layout is totally up to you [DONE]
 
@@ -98,10 +98,10 @@ DUE: 1 week (May 12, 2016)
 #### Network and Storage
 * all quizzes/questions should come from online [DONE]
 * store the quizzes/questions to local storage [DONE]
-* if offline, use locally-stored data [TODO: DOUBLE CHECK]
+* if offline, use locally-stored data [DONE]
 * initial URL to use: http://tednewardsandbox.site44.com/questions.json [DONE]
 * Settings should be a popover
-  * include a URL field to use instead of the above [TODO: DOUBLE CHECK]
+  * include a URL field to use instead of the above [DONE]
   * include a "check now" button to retrieve [TODO: DOUBLE CHECK]
 
 #### Grading: 5 points
